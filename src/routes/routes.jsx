@@ -46,6 +46,9 @@ import AllFaq from "../page/Faq/AllFaq";
 import AllDocument from "../component/Main/AllDocument/AllDocument";
 import Lawyera from "../page/Lawyer/Lawyera";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import ApartmentCreatorCreate from "../page/Lawyer/ApartmentCreatorCreate";
+import ApartmentOwner from "../page/ApartmentOwner/ApartmentOwner";
+import Apartmentdetails from "../page/ApartmentOwner/Apartmentdetails";
 
 
 
@@ -56,7 +59,7 @@ const router = createBrowserRouter([
       // <AdminRoutes>
       // </AdminRoutes>
       // <PrivetRout1e>  
-        <MainLayout />
+      <MainLayout />
       // </PrivetRout1e>
     ),
     errorElement: <h1>Error</h1>,
@@ -75,8 +78,23 @@ const router = createBrowserRouter([
       },
 
       {
+        path: "apartment-owner",
+        element: <ApartmentOwner />,
+      },
+      {
+        path: "apartment-owner/apartment-details/:id",
+        element: <Apartmentdetails />,
+      },
+
+
+
+      {
         path: "apartment-creator",
         element: <Lawyera />,
+      },
+      {
+        path: "apartment-creator/create",
+        element: <ApartmentCreatorCreate />,
       },
 
 

@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../redux/features/auth/authSlice";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { FaBriefcase, FaCopy, FaUserAlt, FaUsers } from "react-icons/fa";
-import { MdDashboard, MdOutlineContactPage } from "react-icons/md";
+import { MdDashboard, MdOutlineContactPage, MdOutlineHomeWork } from "react-icons/md";
 // import { GiLightBulb } from "react-icons/gi";
 import { HiLightBulb } from "react-icons/hi";
 import { FaRegMoneyBill1, FaSackDollar } from "react-icons/fa6";
@@ -32,7 +32,7 @@ const sidebarItems = [
   {
     path: "/apartment-owner",
     name: "Apartment Owner",
-    icon: <FaUsers className="size-6" />,
+    icon: <MdOutlineHomeWork className="size-6" />,
   },
   {
     path: "/apartment-creator",

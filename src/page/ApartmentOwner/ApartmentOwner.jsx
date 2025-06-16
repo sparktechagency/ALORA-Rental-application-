@@ -9,7 +9,7 @@ import { IoEyeOutline } from "react-icons/io5";
 
 const { Item } = Form;
 
-const Lawyera = () => {
+const ApartmentOwner = () => {
     // Demo data (simulating fetched data)
     const demoUserData = [
         { id: 1, fullName: "John Doe", accountID: "A123", email: "john.doe@example.com", phoneNumber: "123-456-7890", address_line1: "123 Main St", createdAt: "2023-06-10", status: "active", gender: "male", image: { url: "" } },
@@ -99,7 +99,6 @@ const Lawyera = () => {
                     <FaAngleLeft />  Apartment Creator list {detailsVisible ? "Details" : ""}
                 </Link>
                 <Form layout="inline" className="flex space-x-4">
-                    <Link to={"/apartment-creator/create"} className="bg-[#2cb5eb] hover:!text-white text-white rounded-md py-3 px-8 text-base">Account create</Link>
                     <Item name="date">
                         <DatePicker
                             className="rounded-md border border-[#39ceec]"
@@ -207,7 +206,7 @@ const Lawyera = () => {
                                     <h2 className="text-2xl font-semibold">Driftwood Apartment </h2>
                                     <p>100 Smart Street, LA, USA</p>
                                 </div>
-                                <button className="border py-2 px-10 bg-[#39ceec] rounded-full text-white ">View details</button>
+                                <Link to={`/apartment-owner/apartment-details/212`} className="border py-2 px-10 bg-[#39ceec] rounded-full text-white ">View details</Link>
                             </div>
                             <div onClick={() => setApartmentVisible(!apartmentVisible)} className="flex cursor-pointer items-center justify-between">
                                 <h2 className="text-2xl font-semibold border-b-2 border-[#39ceec]">Apartment  image</h2>
@@ -232,21 +231,13 @@ const Lawyera = () => {
                             }
 
 
-                            <button className="border py-2 px-10 border-[#39ceec] rounded-lg mt-5 w-full  ">Delete Role </button>
-
                         </div>
 
-
-
                     </div>
-
-
                 </div>
-
-
             </div>
         </section>
     );
 };
 
-export default Lawyera;
+export default ApartmentOwner;

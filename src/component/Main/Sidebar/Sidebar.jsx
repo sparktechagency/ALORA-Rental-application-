@@ -48,11 +48,11 @@ const sidebarItems = [
     name: "Subscription ",
     icon: <AiFillCrown className="size-6" />,
   },
-  {
-    path: "/earnings",
-    name: "Earnings ",
-    icon: <FaRegMoneyBill1 className="size-6" />,
-  },
+  // {
+  //   path: "/earnings",
+  //   name: "Earnings ",
+  //   icon: <FaRegMoneyBill1 className="size-6" />,
+  // },
   // {
   //   path: "/user-request",
   //   name: "Super User Request",

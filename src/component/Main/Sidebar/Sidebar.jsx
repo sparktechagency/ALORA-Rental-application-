@@ -17,6 +17,7 @@ import { GrDocumentImage } from "react-icons/gr";
 import { RxCross1 } from "react-icons/rx";
 import logoimage from '/public/logo/Logo-Orange.png';
 import { AiFillCrown } from "react-icons/ai";
+import { PiBuildingApartmentLight } from "react-icons/pi";
 
 const sidebarItems = [
   {
@@ -40,7 +41,11 @@ const sidebarItems = [
     name: "Apartment Creator",
     icon: <FaUsers className="size-6" />,
   },
-
+  {
+    path: "/apartment-create",
+    name: "Apartment Create",
+    icon: <PiBuildingApartmentLight className="size-6" />,
+  },
 
 
   {
@@ -48,41 +53,7 @@ const sidebarItems = [
     name: "Subscription ",
     icon: <AiFillCrown className="size-6" />,
   },
-  // {
-  //   path: "/earnings",
-  //   name: "Earnings ",
-  //   icon: <FaRegMoneyBill1 className="size-6" />,
-  // },
-  // {
-  //   path: "/user-request",
-  //   name: "Super User Request",
-  //   icon: <FaBriefcase className="size-6" />,
-  // },
-  // {
-  //   path: "/allevent",
-  //   name: "All Tournament",
-  //   icon: <FaBriefcase className="size-6" />,
-  // },
-  // {
-  //   path: "/subscription",
-  //   name: "Subscription",
-  //   icon: <FaCopy className="size-6" />,
-  // },
-  // {
-  //   path: "/earnings",
-  //   name: "Earnings",
-  //   icon: <FaSackDollar className="size-6" />,
-  // },
-  // {
-  //   path: "/suggestion",
-  //   name: "Suggestion",
-  //   icon: <HiLightBulb className="size-8" />,
-  // },
-  // {
-  //   path: "/Donation",
-  //   name: "Donation",
-  //   icon: <RiMoneyDollarCircleFill className="size-6" />,
-  // },
+
   {
     path: "/settings",
     name: "Settings",

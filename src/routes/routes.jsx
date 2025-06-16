@@ -50,6 +50,7 @@ import ApartmentCreatorCreate from "../page/Lawyer/ApartmentCreatorCreate";
 import ApartmentOwner from "../page/ApartmentOwner/ApartmentOwner";
 import Apartmentdetails from "../page/ApartmentOwner/Apartmentdetails";
 import SubscriptionUserList from "../page/Subscription/SubscriptionUserList";
+import ApartmentCreate from "../page/ApartmentCreate/ApartmentCreate";
 
 
 
@@ -111,8 +112,8 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "earnings",
-        element: <Earnings />,
+        path: "apartment-create",
+        element: <ApartmentCreate />,
       },
 
       {
@@ -122,7 +123,7 @@ const router = createBrowserRouter([
       {
         path: "settings",
         element: <SettingsPage />,
-      }, 
+      },
       {
         path: "settings/personal-info",
         element: <Personalinfo />,

@@ -47,7 +47,7 @@ const Settings = () => {
       title: "About us",
       path: "about-us",
     },
-    
+
   ];
 
   const handleNavigate = (value) => {

@@ -49,6 +49,7 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import ApartmentCreatorCreate from "../page/Lawyer/ApartmentCreatorCreate";
 import ApartmentOwner from "../page/ApartmentOwner/ApartmentOwner";
 import Apartmentdetails from "../page/ApartmentOwner/Apartmentdetails";
+import SubscriptionUserList from "../page/Subscription/SubscriptionUserList";
 
 
 
@@ -98,23 +99,15 @@ const router = createBrowserRouter([
       },
 
 
-      {
-        path: "assets",
-        element: <CategoriesPage />,
-      },
 
-      {
-        path: "collaborator",
-        element: <Collaborator />,
-      },
-      {
-        path: "collaborator/:id",
-        element: <CollaboratorDetails />,
-      },
 
       {
         path: "subscription",
         element: <Subscription />,
+      },
+      {
+        path: "subscription/user-list",
+        element: <SubscriptionUserList />,
       },
 
       {

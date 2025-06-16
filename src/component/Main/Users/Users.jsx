@@ -91,7 +91,7 @@ const Users = () => {
   return (
     <section>
       <div className="md:flex justify-between items-center py-6 mb-4">
-        <Link to={"/collaborator"} className="text-2xl flex items-center">
+        <Link to={"/"} className="text-2xl flex items-center">
           <FaAngleLeft />  Renter User list  {detailsVisible ? "Details" : ""}
         </Link>
         <Form layout="inline" className="flex space-x-4">

@@ -1,66 +1,59 @@
 import React, { useState } from 'react';
-import { Modal, Input, Upload, message } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
-import subscriptionImage from '/public/category/category.png'; // You can replace with actual image for subscriptions
+import { Modal, Input, Select, Button, message } from 'antd';
 import { FaPlus } from 'react-icons/fa';
-import { useCreateSubScriptionMutation, useDeleteSubScriptionMutation, useGetSubScriptionQuery, useUpdateScriptionMutation } from '../../redux/features/subscription/subscription';
+import { AiFillCrown } from 'react-icons/ai';
+import { FaRegCircleCheck } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const Subscription = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [subscriptionName, setSubscriptionName] = useState('');
+    const [unitType, setUnitType] = useState('1-3 Units');
+    const [monthlyType, setMonthlyType] = useState('1');
     const [price, setPrice] = useState('');
-    const [description, setDescription] = useState('');
-    const [duration, setDuration] = useState('weekly');
     const [id, setId] = useState('');
 
-    // console.log(description);
-
-    const { data: getAllSubScription, isLoading } = useGetSubScriptionQuery();
-    const [createSubScription] = useCreateSubScriptionMutation();
-    const [updateSubScription] = useUpdateScriptionMutation();
-    const [deleteSubScription] = useDeleteSubScriptionMutation();
-    // console.log('subscription', getAllSubScription?.data);
-
-    // Fake data for subscriptions
+    // Demo data for subscriptions
     const subscriptions = [
         {
             id: 1,
-            name: 'Weekly Plan',
-            price: '$5.50/week',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            image: subscriptionImage,
+            name: 'Solo',
+            unitType: '1-3 Units',
+            type: 'Monthly',
+            price: '$9.00',
         },
         {
             id: 2,
-            name: 'Monthly Plan',
-            price: '$20/month',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            image: subscriptionImage,
+            name: 'Family Plan',
+            unitType: '4-6 Units',
+            type: 'yearly',
+            price: '$20.00',
         },
         {
             id: 3,
-            name: 'Yearly Plan',
-            price: '$200/year',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            image: subscriptionImage,
+            name: 'Other Plan',
+            unitType: '4-8 Units',
+            type: 'yearly',
+            price: '$50.00',
         },
     ];
 
     // Handle open modal for adding or editing
     const showModal = (edit = false, subscription = {}) => {
-        console.log(subscription);
         setIsEditing(edit);
         setIsModalVisible(true);
         if (edit) {
             setSubscriptionName(subscription.name);
+            setUnitType(subscription.unitType);
+            setMonthlyType(subscription.monthlyType);
             setPrice(subscription.price);
-            setDescription(subscription.details);
             setId(subscription.id); // Pre-fill for editing
         } else {
             setSubscriptionName('');
+            setUnitType('1-3 Units');
+            setMonthlyType('1');
             setPrice('');
-            setDescription('');
             setId(null);
         }
     };
@@ -69,124 +62,115 @@ const Subscription = () => {
     const handleCancel = () => {
         setIsModalVisible(false);
         setSubscriptionName('');
+        setUnitType('1-3 Units');
+        setMonthlyType('1');
         setPrice('');
-        setDescription('');
     };
 
     // Handle form submit for adding/editing subscription
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!subscriptionName || !price || !description) {
+        if (!subscriptionName || !unitType || !monthlyType || !price) {
             message.error('Please fill all fields!');
             return;
         }
 
-        console.log('subscriptionName', subscriptionName, 'price', price, 'description', description, 'duration', duration);
-
         const formData = {
             name: subscriptionName,
-            price: price,
-            details: description,
-            duration: duration
-        }
+            unitType,
+            monthlyType,
+            price,
+        };
 
+        // Simulating the create subscription
         try {
-
-            const res = await createSubScription(formData).unwrap();
-            console.log(res);
-            // if(res?.data?.error){
-            //     message.error(res?.data?.error?.data?.message);
-            // }
-            if (res?.message) {
-                message.success(res?.message);
-                setDescription('');
-                handleCancel();
-            }
-
-
+            console.log('New subscription created:', formData);
+            message.success('Subscription added successfully!');
+            handleCancel();
         } catch (error) {
             console.log(error);
             message.error('Something went wrong');
-            setDescription('');
         }
-
-        console.log('formData', formData);
-
-        setDescription('');
     };
+
     const handleUpdate = async (e) => {
         e.preventDefault();
         const formData = {
             name: subscriptionName,
-            price: price,
-            details: description,
-            duration: duration,
-            id: id
-        }
+            unitType,
+            monthlyType,
+            price,
+            id,
+        };
 
+        // Simulating the update subscription
         try {
-
-            const res = await updateSubScription(formData).unwrap();
-            console.log(res);
-
-            if (res?.message) {
-                message.success(res?.message);
-                setDescription('');
-                handleCancel();
-            }
-
+            console.log('Updated subscription:', formData);
+            message.success('Subscription updated successfully!');
+            handleCancel();
         } catch (error) {
             console.log(error);
         }
-
-
-        console.log('formData', formData);
-
-        // setIsEditing(true);
-        // showModal(true);
     };
 
-
-
     const handleDelete = async (subscription) => {
-        console.log(subscription.id);
-
         try {
-            const res = await deleteSubScription(subscription.id).unwrap();
-            if (res?.message) {
-                message.success(res?.message);
-            }
-        }
-        catch (error) {
+            // Simulating the delete subscription
+            console.log('Deleted subscription ID:', subscription.id);
+            message.success('Subscription deleted successfully!');
+        } catch (error) {
             console.log(error);
+            message.error('Something went wrong');
         }
-    }
+    };
 
     return (
         <section>
-            <div className="w-full md:flex justify-end items-center py-6">
+            <div className="w-full md:flex justify-end items-center gap-2 flex-wrap py-6">
+                <Link
+                    to="/subscription/user-list"
+                    className="text-xl px-2 md:px-5 py-3 border border-[#2cb5eb] text-[#2cb5eb] flex justify-center items-center gap-1 rounded md:mb-0"
+                >
+                    Subscriptions User
+                </Link>
                 <button
-                    type="primary"
-                    className=" text-xl px-2 md:px-5 py-3 bg-[#038c6d] text-white flex justify-center items-center gap-1 rounded md:mb-0"
+                    type="button"
+                    className="text-xl px-2 md:px-5 py-3 bg-[#2cb5eb] text-white flex justify-center items-center gap-1 rounded md:mb-0"
                     onClick={() => showModal(false)}
                 >
-                    <FaPlus className='text-xl font-semibold text-white' />  Add Subscription
+                    <FaPlus className="text-xl font-semibold text-white" /> Add Subscription
                 </button>
             </div>
 
-            <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-5">
-                {getAllSubScription?.data?.map((subscription) => (
-                    <div key={subscription.id} className="border-shadow pb-5 rounded-lg overflow-hidden">
-                        <div>
-                            <h2 className="my-5 text-3xl font-semibold text-center">{subscription.name}</h2>
-                            <p className="text-center text-xl">${subscription.price} / {subscription.duration}</p>
-                            <p className="my-5 px-5 text-base">{subscription.details}</p>
+            {/* Subscriptions Grid */}
+            <div className="grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 gap-5">
+                {subscriptions.map((subscription) => (
+                    <div key={subscription.id} className="border-2 border-[#2cb5eb]  rounded-lg overflow-hidden">
+                        <div className='p-5'>
+                            <h2 className=" text-3xl font-semibold text-[#2cb5eb] flex items-center gap-2
+                            ">
+                                <div className='h-10 w-10 rounded-full bg-[#2cb5eb] text-white flex justify-center items-center'>
+                                    <AiFillCrown className="size-6" />
+                                </div>
+                                {subscription.name}
+                            </h2>
+                            <h3 className='text-2xl font-semibold mt-5'>Unite type</h3>
+                            <p className=" mt-2 font-semibold text-xl gap-2   flex items-center"><FaRegCircleCheck className='text-[#2cb5eb]' /> {subscription.unitType}</p>
                         </div>
-                        <div className="grid grid-cols-2 gap-3 px-5">
-                            <button onClick={() => handleDelete(subscription)} className="w-full py-3 px-6 border border-[#038c6d] rounded-lg" >
+                        <div className='border-t-2 border-b-2 border-[#2cb5eb] py-2 text-center my-3'>
+                            <p className=" text-5xl font-semibold text-[#2cb5eb] gap-2  ">  {subscription.price} <span className='text-base font-semibold text-black '>/ {subscription.type}</span></p>
+                        </div>
+                        <div className=" gap-3 p-5 ">
+                            <button
+                                onClick={() => handleDelete(subscription)}
+                                className="w-full py-3 mb-2 px-6 border border-[#2cb5eb] text-[#2cb5eb] rounded-lg"
+                            >
                                 Delete
                             </button>
-                            <button onClick={() => showModal(true, subscription)} className="w-full py-3 px-6 border bg-[#038c6d] text-white rounded-lg">
+                            <button
+                                onClick={() => showModal(true, subscription)}
+                                className="w-full py-3 px-6 border bg-[#2cb5eb] text-white rounded-lg"
+                            >
                                 Edit Package
                             </button>
                         </div>
@@ -203,7 +187,7 @@ const Subscription = () => {
             >
                 <form onSubmit={isEditing ? handleUpdate : handleSubmit} action="">
                     <div className="mb-4">
-                        <span className="block mb-2 font-semibold">Subscription Package name</span>
+                        <span className="block mb-2 font-semibold">Subscription Name</span>
                         <Input
                             placeholder="Enter subscription name"
                             value={subscriptionName}
@@ -211,17 +195,34 @@ const Subscription = () => {
                         />
                     </div>
 
-                    <div className='my-3'>
-                        <span className='block mb-2 font-semibold'>Subscription Duration</span>
-                        <select className='w-full border border-gray-300 rounded-md p-2' onChange={(e) => setDuration(e.target.value)} name="duration" value={duration} id="" >
-                            <option value="weekly">Weekly</option>
-                            <option value="monthly">Monthly</option>
-                            <option value="yearly">Yearly</option>
-                        </select>
+                    <div className="my-3">
+                        <span className="block mb-2 font-semibold">Unit Type</span>
+                        <Select
+                            className="w-full"
+                            value={unitType}
+                            onChange={(value) => setUnitType(value)}
+                        >
+                            <Select.Option value="1-3 Units">1 - 3 Units</Select.Option>
+                            <Select.Option value="4-6 Units">4 - 6 Units</Select.Option>
+                            <Select.Option value="7+ Units">7+ Units</Select.Option>
+                        </Select>
+                    </div>
+
+                    <div className="my-3">
+                        <span className="block mb-2 font-semibold">Monthly Type</span>
+                        <Select
+                            className="w-full"
+                            value={monthlyType}
+                            onChange={(value) => setMonthlyType(value)}
+                        >
+                            <Select.Option value="1">Weekly</Select.Option>
+                            <Select.Option value="2">Monthly</Select.Option>
+                            <Select.Option value="3">Yearly</Select.Option>
+                        </Select>
                     </div>
 
                     <div className="mb-4">
-                        <span className="block mb-2 font-semibold">Subscription Package Price</span>
+                        <span className="block mb-2 font-semibold">Subscription Price</span>
                         <Input
                             placeholder="Enter price"
                             value={price}
@@ -229,27 +230,12 @@ const Subscription = () => {
                             onChange={(e) => setPrice(e.target.value)}
                         />
                     </div>
-                    <div className="mb-4">
-                        <span className="block mb-2 font-semibold">Subscription Package Details</span>
-                        <textarea
-                            className='w-full h-40 border border-gray-300 rounded-md p-2'
-                            placeholder="Enter subscription description"
-                            defaultValue={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            rows={4}
-                        />
-                    </div>
 
-                    <button
-                        type="primary"
-                        className="w-full py-3 bg-[#038c6d] text-white"
-                    // onClick={handleSubmit}
-                    >
+
+                    <button type="primary" htmlType="submit" className="w-full py-3 px-5 rounded-lg bg-[#2cb5eb] text-white">
                         {isEditing ? 'Update Subscription' : 'Add Subscription'}
                     </button>
                 </form>
-
-
             </Modal>
         </section>
     );

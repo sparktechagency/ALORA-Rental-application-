@@ -16,6 +16,7 @@ import { GoHomeFill } from "react-icons/go";
 import { GrDocumentImage } from "react-icons/gr";
 import { RxCross1 } from "react-icons/rx";
 import logoimage from '/public/logo/Logo-Orange.png';
+import { AiFillCrown } from "react-icons/ai";
 
 const sidebarItems = [
   {
@@ -39,25 +40,13 @@ const sidebarItems = [
     name: "Apartment Creator",
     icon: <FaUsers className="size-6" />,
   },
-  {
-    path: "/assets",
-    name: "Categories",
-    icon: <GoHomeFill className="size-6" />,
-  },
-  {
-    path: "/all-document",
-    name: "All Document",
-    icon: <GrDocumentImage className="size-5" />,
-  },
-  {
-    path: "/collaborator",
-    name: "Collaborator ",
-    icon: <FaUsers className="size-6" />,
-  },
+
+
+
   {
     path: "/subscription",
     name: "Subscription ",
-    icon: <MdOutlineContactPage className="size-6" />,
+    icon: <AiFillCrown className="size-6" />,
   },
   {
     path: "/earnings",

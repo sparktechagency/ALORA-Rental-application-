@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { ConfigProvider, Table, Form, Input, DatePicker } from "antd";
 import moment from "moment";
 import { IoIosSearch } from "react-icons/io";
-import { FaAngleLeft, FaArrowLeft, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaAngleLeft, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GoInfo } from "react-icons/go";
 import { IoEyeOutline } from "react-icons/io5";
 
 const { Item } = Form;
 
-const ApartmentOwner = () => {
+const SubscriptionUserList = () => {
     // Demo data (simulating fetched data)
     const demoUserData = [
         { id: 1, fullName: "John Doe", accountID: "A123", email: "john.doe@example.com", phoneNumber: "123-456-7890", address_line1: "123 Main St", createdAt: "2023-06-10", status: "active", gender: "male", image: { url: "" } },
@@ -88,33 +88,29 @@ const ApartmentOwner = () => {
         },
     ];
 
-    const [apartmentVisible, setApartmentVisible] = useState(false);
-
-
-
     return (
         <section>
             <div className="md:flex justify-between items-center py-6 mb-4">
-                <Link to={"/"} className="text-2xl flex items-center">
-                    <FaAngleLeft />  Apartment Creator list {detailsVisible ? "Details" : ""}
+                <Link to={"/subscription"} className="text-2xl flex items-center">
+                    <FaAngleLeft />  Subscriptions User list  {detailsVisible ? "Details" : ""}
                 </Link>
                 <Form layout="inline" className="flex space-x-4">
                     <Item name="date">
                         <DatePicker
-                            className="rounded-md border border-[#39ceec]"
+                            className="rounded-md border border-[#92b8c0]"
                             onChange={(date) => setSelectedDate(date)}
                             placeholder="Select Date"
                         />
                     </Item>
                     <Item name="username">
                         <Input
-                            className="rounded-md w-[70%] md:w-full border border-[#39ceec]"
+                            className="rounded-md w-[70%] md:w-full border border-[#92b8c0]"
                             placeholder="User Name"
                             onChange={(e) => setSearchText(e.target.value)}
                         />
                     </Item>
                     <Item>
-                        <button className="size-8 rounded-full flex justify-center items-center bg-[#39ceec] text-black">
+                        <button className="size-8 rounded-full flex justify-center items-center bg-[#92b8c0] text-black">
                             <IoIosSearch className="size-5" />
                         </button>
                     </Item>
@@ -149,8 +145,8 @@ const ApartmentOwner = () => {
                 </ConfigProvider>
 
                 {/* User Details Section */}
-                <div className={`${detailsVisible ? "block" : "hidden"} duration-500 mb-5`}>
-                    <div className=" w-full md:w-3/4 mx-auto border-2 border-[#39ceec] p-5 rounded-lg relative">
+                <div className={`${detailsVisible ? "block" : "hidden"} duration-500`}>
+                    <div className=" w-full md:w-2/4 mx-auto border-2 border-[#39ceec] p-2 rounded-lg relative">
 
                         <div onClick={() => setDetailsVisible(false)} className="absolute bg-[#39ceec] p-3 rounded-full -top-5 -left-5 cursor-pointer" >
                             <FaArrowLeft className="text-2xl" />
@@ -171,73 +167,40 @@ const ApartmentOwner = () => {
 
                         {/* User Details Section */}
                         <div className="space-y-3">
-                            <div className="flex items-center justify-between py-2 px-5 rounded-md border-2 border-[#00000020]">
+                            <div className="flex items-center justify-between py-3 border-b-2 border-[#00000042]">
                                 <span className="font-semibold">Name</span>
                                 <span>{userDataFull?.fullName}</span>
                             </div>
-                            <div className="flex items-center justify-between py-2 px-5 rounded-md border-2 border-[#00000020]">
+                            <div className="flex items-center justify-between py-3 border-b-2 border-[#00000042]">
                                 <span className="font-semibold">Email</span>
                                 <span>{userDataFull?.email}</span>
                             </div>
-                            <div className="flex items-center justify-between py-2 px-5 rounded-md border-2 border-[#00000020]">
+                            <div className="flex items-center justify-between py-3 border-b-2 border-[#00000042]">
                                 <span className="font-semibold">Status</span>
                                 <span>{userDataFull?.status}</span>
                             </div>
-                            <div className="flex items-center justify-between py-2 px-5 rounded-md border-2 border-[#00000020]">
+                            <div className="flex items-center justify-between py-3 border-b-2 border-[#00000042]">
                                 <span className="font-semibold">Phone Number</span>
                                 <span>{userDataFull?.phoneNumber}</span>
                             </div>
-                            <div className="flex items-center justify-between py-2 px-5 rounded-md border-2 border-[#00000020]">
+                            <div className="flex items-center justify-between py-3 border-b-2 border-[#00000042]">
                                 <span className="font-semibold">User Type</span>
                                 <span>{userDataFull?.gender}</span>
                             </div>
-                            <div className="flex items-center justify-between py-2 px-5 rounded-md border-2 border-[#00000020]">
+                            <div className="flex items-center justify-between py-3 border-b-2 border-[#00000042]">
                                 <span className="font-semibold">Joining Date</span>
                                 <span>{moment(userDataFull?.createdAt).format("DD MMM YYYY")}</span>
                             </div>
                         </div>
-
-                        <h2 className="text-4xl font-semibold my-3"> Apartment listed image</h2>
-
-                        <div >
-                            <img className="w-full h-[300px] rounded-lg" src="/Apartment/image-1.jpg" alt="" />
-                            <div className="flex items-center justify-between my-5">
-                                <div>
-                                    <h2 className="text-2xl font-semibold">Driftwood Apartment </h2>
-                                    <p>100 Smart Street, LA, USA</p>
-                                </div>
-                                <Link to={`/apartment-owner/apartment-details/212`} className="border py-2 px-10 bg-[#39ceec] rounded-full text-white ">View details</Link>
-                            </div>
-                            <div onClick={() => setApartmentVisible(!apartmentVisible)} className="flex cursor-pointer items-center justify-between">
-                                <h2 className="text-2xl font-semibold border-b-2 border-[#39ceec]">Apartment  image</h2>
-                                <button>
-                                    {
-                                        apartmentVisible ?
-                                            <FaChevronUp className="text-xl" />
-                                            :
-                                            <FaChevronDown className="text-xl" />
-                                    }
-
-                                </button>
-                            </div>
-                            {
-                                apartmentVisible &&
-                                <div className="grid grid-cols-4 gap-3 mt-3">
-                                    <img className="w-full rounded-lg" src="/Apartment/image-1.jpg" alt="" />
-                                    <img className="w-full rounded-lg" src="/Apartment/image-1.jpg" alt="" />
-                                    <img className="w-full rounded-lg" src="/Apartment/image-1.jpg" alt="" />
-                                    <img className="w-full rounded-lg" src="/Apartment/image-1.jpg" alt="" />
-                                </div>
-                            }
-
-
-                        </div>
-
                     </div>
+
+
                 </div>
+
+
             </div>
         </section>
     );
 };
 
-export default ApartmentOwner;
+export default SubscriptionUserList;

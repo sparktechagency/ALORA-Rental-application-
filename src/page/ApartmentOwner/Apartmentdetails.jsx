@@ -1,6 +1,6 @@
 import { Modal } from 'antd';
 import React, { useState } from 'react';
-import { FaAngleLeft } from 'react-icons/fa';
+import { FaAngleLeft, FaChevronDown } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { IoEyeOutline } from 'react-icons/io5';
 
@@ -27,7 +27,7 @@ const Apartmentdetails = () => {
             <div className='max-w-[650px] my-5'>
                 {/* Apartment Image */}
                 <img className="w-full h-[300px] rounded-lg" src="/Apartment/image-1.jpg" alt="Apartment" />
-                
+
                 {/* Apartment Info */}
                 <div className="flex items-center justify-between my-5">
                     <div>
@@ -40,7 +40,7 @@ const Apartmentdetails = () => {
                 <div className="space-y-3 mt-5">
                     <span className="text-2xl font-semibold border-b-2 border-[#39ceec]">Apartment Description</span>
                     <p>
-                        Welcome to Suncity Apartments, where comfort meets convenience. Located in a prime urban neighborhood, Suncity offers stylish 1, 2, and 3-bedroom units designed for modern living. 
+                        Welcome to Suncity Apartments, where comfort meets convenience. Located in a prime urban neighborhood, Suncity offers stylish 1, 2, and 3-bedroom units designed for modern living.
                         Each apartment features spacious layouts, large windows with natural light, fully equipped kitchens, premium fittings, and private balconies with stunning city views.
                     </p>
                 </div>
@@ -106,16 +106,74 @@ const Apartmentdetails = () => {
 
             {/* Modal for Apartment Details */}
             <Modal
-                title="Apartment Details"
                 visible={isModalVisible}
                 onCancel={handleCancel}
+                width={600}
                 footer={null}
             >
-                <div>
-                    {/* Apartment unit details */}
-                    <p>Here will be the detailed information about the selected apartment unit.</p>
-                    <p>You can add more info about this specific unit here.</p>
+                <div className="max-w-[800px] mx-auto mt-10 ">
+                    <img className='w-full h-[300px] rounded-lg mb-2' src="/Apartment/image-1.jpg" alt="" />
+                    {/* Studio Title and Room Number */}
+                    <div className="">
+                        <div>
+                            <h2 className="text-3xl font-semibold text-orange-500 mb-5">Studio</h2>
+                            <p className="text-gray-600 flex items-center justify-between space-y-2 text-base">Room Number: <strong>BG101</strong></p>
+                            <p className="text-gray-600 flex items-center justify-between space-y-2 text-base">Floor: <strong>1st Floor</strong></p>
+                        </div>
+                    </div>
+
+                    {/* Apartment Facilities */}
+                    <div className="my-5">
+                        <span className="text-2xl font-semibold border-b-2 border-[#39ceec]">BG101 Facilities</span>
+                        <div className="grid grid-cols-3 gap-3 mt-3">
+                            {/* Facilities Icons */}
+                            <div className="flex items-center gap-2 bg-gradient-to-tl from-[#39ceec] to-[#125461] text-white rounded-full p-2 justify-center">
+                                <span className="text-blue-500">🛏️</span>
+                                <span>3 Bedrooms</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-gradient-to-tl from-[#39ceec] to-[#125461] text-white rounded-full p-2 justify-center">
+                                <span className="text-blue-500">🛁</span>
+                                <span>2 Bathrooms</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-gradient-to-tl from-[#39ceec] to-[#125461] text-white rounded-full p-2 justify-center">
+                                <span className="text-blue-500">📏</span>
+                                <span>1600 Sq Ft</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-gradient-to-tl from-[#39ceec] to-[#125461] text-white rounded-full p-2 justify-center">
+                                <span className="text-blue-500">🍽️</span>
+                                <span>1 Kitchen Room</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-gradient-to-tl from-[#39ceec] to-[#125461] text-white rounded-full p-2 justify-center">
+                                <span className="text-blue-500">🌐</span>
+                                <span>Wi-Fi</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-gradient-to-tl from-[#39ceec] to-[#125461] text-white rounded-full p-2 justify-center">
+                                <span className="text-blue-500">🚗</span>
+                                <span>Parking</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-gradient-to-tl from-[#39ceec] to-[#125461] text-white rounded-full p-2 justify-center">
+                                <span className="text-blue-500">🌳</span>
+                                <span>Garden</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-gradient-to-tl from-[#39ceec] to-[#125461] text-white rounded-full p-2 justify-center">
+                                <span className="text-blue-500">🔲</span>
+                                <span>Lift</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Images Section */}
+                    <div className='mt-5'>
+                        <span className="text-2xl font-semibold border-b-2 border-[#39ceec]">BG101 Images</span>
+                        <div className="grid grid-cols-4 gap-3 mt-3">
+                            <img className="w-full rounded-lg" src="/Apartment/image-1.jpg" alt="Apartment Image 1" />
+                            <img className="w-full rounded-lg" src="/Apartment/image-1.jpg" alt="Apartment Image 2" />
+                            <img className="w-full rounded-lg" src="/Apartment/image-1.jpg" alt="Apartment Image 3" />
+                            <img className="w-full rounded-lg" src="/Apartment/image-1.jpg" alt="Apartment Image 4" />
+                        </div>
+                    </div>
                 </div>
+
             </Modal>
 
         </div>

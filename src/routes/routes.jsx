@@ -75,7 +75,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "lawyer",
+        path: "apartment-creator",
         element: <Lawyera />,
       },
 
@@ -149,7 +149,7 @@ const router = createBrowserRouter([
         element: <EditAboutUs />
       },
 
-      
+
     ],
   },
   {

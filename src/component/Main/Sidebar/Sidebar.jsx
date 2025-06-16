@@ -30,8 +30,13 @@ const sidebarItems = [
   },
 
   {
-    path: "/lawyer",
-    name: "Lawyer",
+    path: "/apartment-owner",
+    name: "Apartment Owner",
+    icon: <FaUsers className="size-6" />,
+  },
+  {
+    path: "/apartment-creator",
+    name: "Apartment Creator",
     icon: <FaUsers className="size-6" />,
   },
   {

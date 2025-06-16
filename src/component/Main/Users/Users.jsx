@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { ConfigProvider, Table, Form, Input, DatePicker } from "antd";
 import moment from "moment";
 import { IoIosSearch } from "react-icons/io";
-import { FaAngleLeft } from "react-icons/fa";
+import { FaAngleLeft, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GoInfo } from "react-icons/go";
+import { IoEyeOutline } from "react-icons/io5";
 
 const { Item } = Form;
 
@@ -25,6 +26,10 @@ const Users = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [dataSource, setDataSource] = useState(demoUserData); // Initialize with demo data
+
+  // User details visibility state
+  const [detailsVisible, setDetailsVisible] = useState(false);
+  const [userDataFull, setUserDataFull] = useState(null); // Store full user data for the selected user
 
   // Search Filter
   useEffect(() => {
@@ -56,6 +61,11 @@ const Users = () => {
     }
   }, [selectedDate]);
 
+  const handleShowDetails = (user) => {
+    setUserDataFull(user); // Set the selected user details
+    setDetailsVisible(true); // Show user details section
+  };
+
   const columns = [
     { title: "#SI", dataIndex: "si", key: "si" },
     { title: "Full Name", dataIndex: "fullName", key: "fullName" },
@@ -71,9 +81,9 @@ const Users = () => {
       title: "Action",
       key: "action",
       render: (_, record) => (
-        <Link to={`/users/${record.id}`}>
-          <GoInfo className="text-2xl" />
-        </Link>
+        <div onClick={() => handleShowDetails(record)} className="cursor-pointer">
+          <IoEyeOutline className="text-2xl" />
+        </div>
       ),
     },
   ];
@@ -82,7 +92,7 @@ const Users = () => {
     <section>
       <div className="md:flex justify-between items-center py-6 mb-4">
         <Link to={"/collaborator"} className="text-2xl flex items-center">
-          <FaAngleLeft />  Renter User list
+          <FaAngleLeft />  Renter User list  {detailsVisible ? "Details" : ""}
         </Link>
         <Form layout="inline" className="flex space-x-4">
           <Item name="date">
@@ -107,31 +117,88 @@ const Users = () => {
         </Form>
       </div>
 
-      <ConfigProvider
-        theme={{
-          components: {
-            Table: {
-              headerBg: "#72cdf2",
-              headerColor: "#fff",
-              headerBorderRadius: 5,
+      <div className={`${detailsVisible ? "grid lg:grid-cols-2 gap-5" : "block"} duration-500`}>
+        <ConfigProvider
+          theme={{
+            components: {
+              Table: {
+                headerBg: "#72cdf2",
+                headerColor: "#fff",
+                headerBorderRadius: 5,
+              },
             },
-          },
-        }}
-      >
-        <Table
-          pagination={{
-            position: ["bottomCenter"],
-            current: currentPage,
-            onChange: setCurrentPage,
           }}
-          scroll={{ x: "max-content" }}
-          responsive={true}
-          columns={columns}
-          dataSource={dataSource}
-          rowKey="id"
-          loading={false}
-        />
-      </ConfigProvider>
+        >
+          <Table
+            pagination={{
+              position: ["bottomCenter"],
+              current: currentPage,
+              onChange: setCurrentPage,
+            }}
+            scroll={{ x: "max-content" }}
+            responsive={true}
+            columns={columns}
+            dataSource={dataSource}
+            rowKey="id"
+            loading={false}
+          />
+        </ConfigProvider>
+
+        {/* User Details Section */}
+        <div className={`${detailsVisible ? "block" : "hidden"} duration-500`}>
+          <div className=" w-full md:w-2/4 mx-auto border-2 border-[#39ceec] p-2 rounded-lg relative">
+
+            <div onClick={() => setDetailsVisible(false)} className="absolute bg-[#39ceec] p-3 rounded-full -top-5 -left-5 cursor-pointer" >
+              <FaArrowLeft className="text-2xl" />
+            </div>
+
+            {/* User Profile Section */}
+            <div className="flex items-center justify-between gap-5 mb-5">
+              <div className="flex items-center gap-5">
+                <img
+                  className="w-24 h-24 rounded-full"
+                  src="../../../public/logo/userimage.png"
+                  alt="User"
+                />
+                <h1 className="text-2xl font-semibold">{userDataFull?.fullName}</h1>
+              </div>
+
+            </div>
+
+            {/* User Details Section */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between py-3 border-b-2 border-[#00000042]">
+                <span className="font-semibold">Name</span>
+                <span>{userDataFull?.fullName}</span>
+              </div>
+              <div className="flex items-center justify-between py-3 border-b-2 border-[#00000042]">
+                <span className="font-semibold">Email</span>
+                <span>{userDataFull?.email}</span>
+              </div>
+              <div className="flex items-center justify-between py-3 border-b-2 border-[#00000042]">
+                <span className="font-semibold">Status</span>
+                <span>{userDataFull?.status}</span>
+              </div>
+              <div className="flex items-center justify-between py-3 border-b-2 border-[#00000042]">
+                <span className="font-semibold">Phone Number</span>
+                <span>{userDataFull?.phoneNumber}</span>
+              </div>
+              <div className="flex items-center justify-between py-3 border-b-2 border-[#00000042]">
+                <span className="font-semibold">User Type</span>
+                <span>{userDataFull?.gender}</span>
+              </div>
+              <div className="flex items-center justify-between py-3 border-b-2 border-[#00000042]">
+                <span className="font-semibold">Joining Date</span>
+                <span>{moment(userDataFull?.createdAt).format("DD MMM YYYY")}</span>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+      </div>
     </section>
   );
 };

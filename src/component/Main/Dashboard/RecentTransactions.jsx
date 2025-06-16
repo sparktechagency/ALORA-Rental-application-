@@ -1,8 +1,7 @@
 import { ConfigProvider, Table, Pagination, Space, message, Modal, Button } from "antd";
 import { useState } from "react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
-import { useGetDashboardStatusQuery } from "../../../redux/features/dashboard/dashboardApi";
-import { useBlockUserMutation, useUnBlockUserMutation } from "../../../redux/features/user/userApi";
+import dayjs from "dayjs"; // Ensure dayjs is imported
 
 const RecentTransactions = () => {
   const [searchText, setSearchText] = useState("");
@@ -12,35 +11,26 @@ const RecentTransactions = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null); // Store selected user details
 
-  const { data: userData, isLoading } = useGetDashboardStatusQuery();
-  const recentUsers = userData?.recentUsers.slice(0, 8);
+  // Demo data for users
+  const demoUserData = [
+    { id: 1, fullName: "John Doe", email: "john.doe@example.com", role: "Admin", createdAt: "2023-06-16T12:00:00Z" },
+    { id: 2, fullName: "Jane Smith", email: "jane.smith@example.com", role: "User", createdAt: "2023-06-14T12:00:00Z" },
+    { id: 3, fullName: "Bob Johnson", email: "bob.johnson@example.com", role: "Manager", createdAt: "2023-05-25T12:00:00Z" },
+    { id: 4, fullName: "Alice Williams", email: "alice.williams@example.com", role: "User", createdAt: "2023-06-01T12:00:00Z" },
+    { id: 5, fullName: "Charlie Brown", email: "charlie.brown@example.com", role: "User", createdAt: "2023-04-18T12:00:00Z" },
+    { id: 6, fullName: "David White", email: "david.white@example.com", role: "Admin", createdAt: "2023-06-08T12:00:00Z" },
+    { id: 7, fullName: "Eva Green", email: "eva.green@example.com", role: "User", createdAt: "2023-03-22T12:00:00Z" },
+    { id: 8, fullName: "Frank Harris", email: "frank.harris@example.com", role: "Manager", createdAt: "2023-06-10T12:00:00Z" },
+  ];
 
-  const [userBlock] = useBlockUserMutation();
-  const [userUnBlock] = useUnBlockUserMutation();
-
-  // Handle User Blocking
-  const handleUserRemove = async (id) => {
-    try {
-      const res = await userBlock(id);
-      if (res.error) {
-        message.error(res.error.data.message);
-      }
-      if (res.data) {
-        message.success(res.data.message);
-      }
-    } catch (error) {
-      message.error("Something went wrong");
-    }
+  // Handle User Blocking (Demo)
+  const handleUserRemove = (id) => {
+    message.success("User blocked successfully");
   };
 
-  // Handle User Unblocking
-  const handleUserUnBlock = async (id) => {
-    try {
-      const res = await userUnBlock(id);
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
+  // Handle User Unblocking (Demo)
+  const handleUserUnBlock = (id) => {
+    message.success("User unblocked successfully");
   };
 
   // Open Modal with User Details
@@ -100,29 +90,29 @@ const RecentTransactions = () => {
     },
   ];
 
-  const filteredData = recentUsers?.filter((user) => {
+  const filteredData = demoUserData.filter((user) => {
     const matchesText =
-      `${user.firstName} ${user.lastName}`.toLowerCase().includes(searchText.toLowerCase());
+      `${user.fullName}`.toLowerCase().includes(searchText.toLowerCase());
     const matchesDate = selectedDate
-      ? user.date === selectedDate.format("YYYY-MM-DD")
+      ? dayjs(user.createdAt).format("YYYY-MM-DD") === selectedDate.format("YYYY-MM-DD")
       : true;
 
     return matchesText && matchesDate;
   });
 
   // Paginate the filtered data
-  const paginatedData = filteredData?.slice(
+  const paginatedData = filteredData.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
 
-  const dataSource = paginatedData?.map((user, index) => ({
+  const dataSource = paginatedData.map((user, index) => ({
     key: user.id,
     si: (currentPage - 1) * pageSize + index + 1, // Correct the serial number based on page
     userName: `${user?.fullName}`,
     email: user.email,
     role: user.role,
-    joinDate: user.createdAt.split(",")[0],
+    joinDate: dayjs(user.createdAt).format("YYYY-MM-DD"),
   }));
 
   return (
@@ -136,8 +126,8 @@ const RecentTransactions = () => {
         theme={{
           components: {
             Table: {
-              headerBg: "#92b8c0",
-              headerColor: "#000",
+              headerBg: "#72cdf2",
+              headerColor: "#fff",
               headerBorderRadius: 5,
             },
           },
@@ -157,7 +147,7 @@ const RecentTransactions = () => {
         <Pagination
           current={currentPage}
           pageSize={pageSize}
-          total={filteredData?.length}
+          total={filteredData.length}
           onChange={(page, pageSize) => {
             setCurrentPage(page);
             setPageSize(pageSize);
@@ -170,7 +160,6 @@ const RecentTransactions = () => {
 
       {/* User Details Modal */}
       <Modal
-        // title="User Details"
         open={isModalVisible}
         onCancel={handleCancel}
         footer={[]}

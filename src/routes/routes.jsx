@@ -149,69 +149,7 @@ const router = createBrowserRouter([
         element: <EditAboutUs />
       },
 
-
-
-
-
-
-      {
-        path: "/all-document",
-        element: <AllDocument />,
-      },
-
-
-
-      // {
-      //   path: "subscription/edit-box/:id",
-      //   element: <EditCategoriesBoxPage />,
-      // },
-      // {
-      //   path: "allevent",
-      //   element: <EventItems />,
-      // },
-      // {
-      //   path: "allevent/recent-tournament/:id",
-      //   element: <EventItemsPageTonamentDetials />,
-      // },
-      // {
-      //   path: "allevent/edit/:id",
-      //   element: <EventItemsPageTonamentEdit />,
-      // },
-
-
-      // {
-      //   path: "earnings",
-      //   element: <Earnings />,
-      // },
-      // {
-      //   path: "allevent/view-item/:id",
-      //   element: <EventViewItemPage />,
-      // },
-      // {
-      //   path: "Donation",
-      //   element: <DonationPage />,
-      // },
-      // {
-      //   path: "suggestion",
-      //   element: <SuggestionPage />,
-      // },
-      // {
-      //   path: "settings/personal-info",
-      //   element: <PersonalInformationPage />,
-      // },
-      // {
-      //   path: "settings/edit-personal-info",
-      //   element: <EditPersonalInformationPage />,
-      // },
-
-      // {
-      //   path: "settings/welcome-page",
-      //   element: <WelcomePage />,
-      // },
-      // {
-      //   path: "settings/welcome-page/edit",
-      //   element: <EditWelcomePage />,
-      // },
+      
     ],
   },
   {

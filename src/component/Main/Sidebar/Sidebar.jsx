@@ -15,6 +15,7 @@ import { FaRegMoneyBill1, FaSackDollar } from "react-icons/fa6";
 import { GoHomeFill } from "react-icons/go";
 import { GrDocumentImage } from "react-icons/gr";
 import { RxCross1 } from "react-icons/rx";
+import logoimage from '/public/logo/Logo-Orange.png';
 
 const sidebarItems = [
   {
@@ -24,7 +25,7 @@ const sidebarItems = [
   },
   {
     path: "/users",
-    name: "User",
+    name: "Resent User",
     icon: <FaUserAlt className="size-6" />,
   },
 
@@ -108,17 +109,17 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   return (
     <div>
       {/* Desktop Sidebar */}
-      <div className="hidden overflow-y-auto md:block w-full md:w-[200px] lg:w-[250px] xl:w-[280px] h-full bg-[#038c6d] fixed shadow-2xl">
+      <div className="hidden overflow-y-auto md:block w-full md:w-[200px] lg:w-[250px] xl:w-[280px] h-full  bg-[#ffffff] fixed shadow-2xl">
         <Link to={"/"} className="flex flex-col justify-center items-center pt-5 gap-2 bg-white mb-10 text-black">
-          <img src={logo} alt="logo" className="w-[60px] mb-5 " />
+          <img src={logoimage} alt="logo" className="w-[80px]  py-5 " />
         </Link>
-        <ul className="flex flex-col gap-5">
+        <ul className="flex flex-col gap-5 mt-10">
           {sidebarItems.map((item) => (
             <NavLink
               key={item.name}
               to={item.path}
               className={({ isActive }) =>
-                `w-[80%] mx-auto px-5 py-2 flex justify-start items-center gap-3 text-white ${isActive ? "bg-white !text-black border-l-4 border-[#f13919]" : ""
+                `w-[80%] mx-auto px-5 py-2 flex justify-start items-center gap-3 text-black ${isActive ? " !text-white rounded-md bg-[#2cb5eb] " : ""
                 }`
               }
             >
@@ -147,7 +148,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
           <RxCross1 className="size-6 text-black" />
         </div>
         <div className="flex flex-col justify-center items-center pt-5 gap-2 bg-white text-white">
-          <img src={logo} alt="logo"  className="h-20 mb-5" />
+          <img src={logo} alt="logo" className="h-20 mb-5" />
         </div>
         <ul className="flex flex-col gap-3 mt-10">
           {sidebarItems.map((item) => (

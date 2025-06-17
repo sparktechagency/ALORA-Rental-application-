@@ -2,7 +2,6 @@ import { useGetDashboardStatusQuery } from "../../../redux/features/dashboard/da
 import dashboardIcon from "/public/logo/dashboard-icon.png";
 import { FaArrowTrendUp } from "react-icons/fa6";
 
-
 const Status = () => {
   const { data, isLoading } = useGetDashboardStatusQuery();
 
@@ -17,7 +16,7 @@ const Status = () => {
         </div>
         <div className="flex items-center mt-5 gap-3">
           <h1 className="text-4xl font-semibold text-[#222222]">
-            {data?.totalNumberOfUser || "500"} 
+            {data?.totalNumberOfUser || "500"}
           </h1>
           <p className="bg-[#19f1361f] text-[#159726] rounded-lg px-2 py-1 flex items-center gap-1"> <FaArrowTrendUp className="text-[#159726]" /> 20%</p>
           <h1>Last month total  1050</h1>
@@ -32,7 +31,7 @@ const Status = () => {
         <div className="flex items-center mt-5 gap-3">
           <h1 className="text-4xl font-semibold text-[#222222]">
             {data?.totalNumberOfUser || "500"}
-          </h1> 
+          </h1>
           <h1>Last month total  1050</h1>
         </div>
       </div>
@@ -45,7 +44,7 @@ const Status = () => {
         <div className="flex items-center mt-5 gap-3">
           <h1 className="text-4xl font-semibold text-[#222222]">
             {data?.totalNumberOfUser || "30"}
-          </h1>  
+          </h1>
         </div>
       </div>
 

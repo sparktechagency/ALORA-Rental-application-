@@ -43,7 +43,7 @@ const ApartmentCreateDetials = () => {
                         Welcome to Suncity Apartments, where comfort meets convenience. Located in a prime urban neighborhood, Suncity offers stylish 1, 2, and 3-bedroom units designed for modern living.
                         Each apartment features spacious layouts, large windows with natural light, fully equipped kitchens, premium fittings, and private balconies with stunning city views.
                     </p>
-                </div>
+                </div> 
 
                 {/* Apartment Facilities */}
                 <div className="space-y-3 mt-5">

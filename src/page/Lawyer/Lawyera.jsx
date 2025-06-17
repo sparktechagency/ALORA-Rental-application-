@@ -90,8 +90,6 @@ const Lawyera = () => {
 
     const [apartmentVisible, setApartmentVisible] = useState(false);
 
-
-
     return (
         <section>
             <div className="md:flex justify-between items-center py-6 mb-4">

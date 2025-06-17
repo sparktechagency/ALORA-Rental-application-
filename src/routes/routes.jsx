@@ -51,6 +51,7 @@ import ApartmentOwner from "../page/ApartmentOwner/ApartmentOwner";
 import Apartmentdetails from "../page/ApartmentOwner/Apartmentdetails";
 import SubscriptionUserList from "../page/Subscription/SubscriptionUserList";
 import ApartmentCreate from "../page/ApartmentCreate/ApartmentCreate";
+import ApartmentCreateAddNew from "../page/ApartmentCreate/ApartmentCreateAddNew";
 
 
 
@@ -94,11 +95,21 @@ const router = createBrowserRouter([
         path: "apartment-creator",
         element: <Lawyera />,
       },
+
       {
         path: "apartment-creator/create",
         element: <ApartmentCreatorCreate />,
       },
 
+
+      {
+        path: "apartment-create",
+        element: <ApartmentCreate />,
+      },
+      {
+        path: "apartment-create/create",
+        element: <ApartmentCreateAddNew />,
+      },
 
 
 
@@ -111,10 +122,6 @@ const router = createBrowserRouter([
         element: <SubscriptionUserList />,
       },
 
-      {
-        path: "apartment-create",
-        element: <ApartmentCreate />,
-      },
 
       {
         path: "/notification",

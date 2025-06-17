@@ -52,6 +52,7 @@ import Apartmentdetails from "../page/ApartmentOwner/Apartmentdetails";
 import SubscriptionUserList from "../page/Subscription/SubscriptionUserList";
 import ApartmentCreate from "../page/ApartmentCreate/ApartmentCreate";
 import ApartmentCreateAddNew from "../page/ApartmentCreate/ApartmentCreateAddNew";
+import ApartmentCreateDetials from "../page/ApartmentCreate/ApartmentCreateDetials";
 
 
 
@@ -105,6 +106,10 @@ const router = createBrowserRouter([
       {
         path: "apartment-create",
         element: <ApartmentCreate />,
+      },
+      {
+        path: "apartment-create/:id",
+        element: <ApartmentCreateDetials />,
       },
       {
         path: "apartment-create/create",

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, message, Steps, Upload, Checkbox } from 'antd';
+import { Form, Input, Button, message, Steps, Upload, Checkbox, Select } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 const { Step } = Steps;
@@ -8,6 +8,10 @@ const ApartmentCreateAddNew = () => {
     const [current, setCurrent] = useState(0);
     const [form] = Form.useForm();
     const [apartmentData, setApartmentData] = useState({
+        price: '',
+        idCard: '',
+        incomeTaxDoc: '',
+        creditApplicationDoc: '',
         name: '',
         location: '',
         description: '',
@@ -69,22 +73,99 @@ const ApartmentCreateAddNew = () => {
             <Form form={form} layout="vertical" onFinish={onSubmit}>
                 {/* Step 1: Apartment Info */}
                 {current === 0 && (
-                    <div>
-                        <Form.Item label="Apartment Name" required>
+                    <div className='border border-[#39ceec] rounded-lg p-5'>
+                        {/* Form Submission Fee */}
+                        <Form.Item label="Form Submission Fee" required>
                             <Input
-                                value={apartmentData.name}
-                                onChange={(e) => handleInputChange('name', e.target.value)}
-                                placeholder="Enter apartment name"
+                                value={apartmentData.price}
+                                onChange={(e) => handleInputChange('price', e.target.value)}
+                                className='py-2'
+                                placeholder="Form submission fee"
                             />
                         </Form.Item>
-                        <Form.Item label="Location" required>
-                            <Input
-                                value={apartmentData.location}
-                                onChange={(e) => handleInputChange('location', e.target.value)}
-                                placeholder="Enter location"
-                            />
+
+                        {/* Submit Income Tax Doc */}
+                        <Form.Item label="Submit Income Tax Doc" required>
+                            <div className="flex items-center gap-6">
+                                <label className="flex cursor-pointer items-center gap-2 text-xl" htmlFor="submitIncomeTaxDocYes">
+                                    <input
+                                        type="radio"
+                                        id="submitIncomeTaxDocYes"
+                                        name="submitIncomeTaxDoc"
+                                        value="yes"
+                                        onChange={(e) => handleSelectChange('incomeTaxDoc', e.target.value)} // Update the state
+                                    />
+                                    Yes
+                                </label>
+                                <label className="flex cursor-pointer items-center gap-2 text-xl" htmlFor="submitIncomeTaxDocNo">
+                                    <input
+                                        type="radio"
+                                        id="submitIncomeTaxDocNo"
+                                        name="submitIncomeTaxDoc"
+                                        value="no"
+                                        onChange={(e) => handleSelectChange('incomeTaxDoc', e.target.value)} // Update the state
+                                    />
+                                    No
+                                </label>
+                            </div>
                         </Form.Item>
+
+
+                        {/* Submit ID Card  here also Radio Button*/}
+                        <Form.Item label="Submit ID Card" required>
+                            <div className="flex items-center gap-6">
+                                <label className="flex cursor-pointer items-center gap-2 text-xl" htmlFor="submitIdCardYes">
+                                    <input
+                                        type="radio"
+                                        id="submitIdCardYes"
+                                        name="submitIdCard"
+                                        value="yes"
+                                        onChange={(e) => handleSelectChange('idCard', e.target.value)} // Update the state
+                                    />
+                                    Yes
+                                </label>
+                                <label className="flex cursor-pointer items-center gap-2 text-xl" htmlFor="submitIdCardNo">
+                                    <input
+                                        type="radio"
+                                        id="submitIdCardNo"
+                                        name="submitIdCard"
+                                        value="no"
+                                        onChange={(e) => handleSelectChange('idCard', e.target.value)} // Update the state
+                                    />
+                                    No
+                                </label>
+                            </div>
+                        </Form.Item>
+
+
+                        {/* Submit Credit Application Doc here also Radio Button*/}
+                        <Form.Item label="Submit Credit Application Doc" required>
+                            <div className="flex items-center gap-6">
+                                <label className="flex cursor-pointer items-center gap-2 text-xl" htmlFor="submitCreditApplicationDocYes">
+                                    <input
+                                        type="radio"
+                                        id="submitCreditApplicationDocYes"
+                                        name="submitCreditApplicationDoc"
+                                        value="yes"
+                                        onChange={(e) => handleSelectChange('creditApplicationDoc', e.target.value)} // Update the state
+                                    />
+                                    Yes
+                                </label>
+                                <label className="flex cursor-pointer items-center gap-2 text-xl" htmlFor="submitCreditApplicationDocNo">
+                                    <input
+                                        type="radio"
+                                        id="submitCreditApplicationDocNo"
+                                        name="submitCreditApplicationDoc"
+                                        value="no"
+                                        onChange={(e) => handleSelectChange('creditApplicationDoc', e.target.value)} // Update the state
+                                    />
+                                    No
+                                </label>
+                            </div>
+                        </Form.Item>
+
                     </div>
+
                 )}
 
                 {/* Step 2: Description & Price */}

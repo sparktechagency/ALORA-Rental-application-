@@ -72,18 +72,7 @@ const IncomeGraphChart = () => {
   };
 
   return (
-    <section className="w-full col-span-full md:col-span-4 bg-white rounded-lg border border-[#2cb5eb]">
-      <div className="border-b border-[#2cb5eb]">
-        <div className="flex justify-between items-center p-3">
-          <h1 className="font-semibold">Income Ratio</h1>
-          <DatePicker 
-            picker="year" 
-            value={dayjs(selectedYear.toString())}  // Convert year to dayjs object for DatePicker
-            onChange={handleDateChange}
-          />
-        </div>
-      </div>
-
+    <section className="w-full col-span-full md:col-span-4 bg-white rounded-lg border-2 border-[#2cb5eb] shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
       <div className="pr-4 py-4">
         <Line {...config} />
       </div>

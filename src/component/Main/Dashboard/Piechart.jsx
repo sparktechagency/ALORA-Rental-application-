@@ -10,8 +10,8 @@ const Piechart =() =>{
   const circumference = 2 * Math.PI * radius;
  
   return (
-    <div className="col-span-full md:col-span-2">
-      <div className="bg-white rounded-3xl shadow-[0_4px_10px_rgba(0,0,0,0.1)] p-8 ">
+    <div className="col-span-full md:col-span-2 border-2 border-[#2cb5eb] rounded-lg shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
+      <div className="bg-white rounded-3xl p-8 ">
         {/* Metrics Section */}
         <div className="space-y-5 mb-10">
           {metrics.map((metric, index) => (

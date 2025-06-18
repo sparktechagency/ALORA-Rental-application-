@@ -17,7 +17,7 @@ const Header = ({ toggleSidebar }) => {
   const { data: userProfile, refetch } = useGetUserProfileQuery();
 
   const user = userProfile?.data;
-  // console.log(user);
+  // console.log(user); 
 
   useEffect(() => {
     refetch();
@@ -39,7 +39,7 @@ const Header = ({ toggleSidebar }) => {
       <div className="flex justify-between items-center gap-5">
         <Link to={"/notification"}>
           <h1 className="relative text-[#2cb5eb] p-2 rounded-full bg-white">
-            <MdNotificationsNone className="size-8" />{" "}
+            <MdNotificationsNone className="size-8" />
             {/* <span className="absolute top-0 right-0 w-5 h-5 text-white text-xs flex justify-center items-center bg-red-500 rounded-full">99+</span> */}
           </h1>
 

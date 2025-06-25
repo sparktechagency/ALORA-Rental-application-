@@ -127,7 +127,7 @@ const CaintenanceCrew = () => {
 
             <div className={`${detailsVisible ? "grid lg:grid-cols-2 gap-5" : "block"} duration-500`}>
                 <ConfigProvider
-                    theme={{
+                    theme={{ 
                         components: {
                             Table: {
                                 headerBg: "#2cb5eb",

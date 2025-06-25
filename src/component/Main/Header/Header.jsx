@@ -18,7 +18,7 @@ const Header = ({ toggleSidebar }) => {
 
   const user = userProfile?.data;
   // console.log(user);  
-  
+
   useEffect(() => {
     refetch();
   }, [refetch]);

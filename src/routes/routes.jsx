@@ -53,6 +53,10 @@ import SubscriptionUserList from "../page/Subscription/SubscriptionUserList";
 import ApartmentCreate from "../page/ApartmentCreate/ApartmentCreate";
 import ApartmentCreateAddNew from "../page/ApartmentCreate/ApartmentCreateAddNew";
 import ApartmentCreateDetials from "../page/ApartmentCreate/ApartmentCreateDetials";
+import Agent from "../page/Agent/Agent";
+import Agentcreate from "../page/Agent/Agentcreate";
+import CaintenanceCrew from "../page/CaintenanceCrew/CaintenanceCrew";
+import CaintenanceCrewCreate from "../page/CaintenanceCrew/CaintenanceCrewCreate";
 
 
 
@@ -82,6 +86,25 @@ const router = createBrowserRouter([
       },
 
       {
+        path: "agent",
+        element: <Agent />,
+      },
+      {
+        path: "agent/create",
+        element: <Agentcreate />,
+      },
+
+      {
+        path: "maintenance-crew",
+        element: <CaintenanceCrew />,
+      },
+      {
+        path: "maintenance-crew/create",
+        element: <CaintenanceCrewCreate />,
+      },
+
+
+      {
         path: "apartment-owner",
         element: <ApartmentOwner />,
       },
@@ -89,8 +112,6 @@ const router = createBrowserRouter([
         path: "apartment-owner/apartment-details/:id",
         element: <Apartmentdetails />,
       },
-
-
 
       {
         path: "apartment-creator",

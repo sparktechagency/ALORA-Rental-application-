@@ -31,11 +31,29 @@ const sidebarItems = [
     icon: <FaUserAlt className="size-6" />,
   },
 
+
+  {
+    path: "/agent",
+    name: "Agent",
+    icon: <FaUsers className="size-6" />,
+  },
+
+  {
+    path: "/maintenance-crew",
+    name: "Maintenance crew list",
+    icon: <FaUsers className="size-6" />,
+  },
+
+
+
   {
     path: "/apartment-owner",
     name: "Apartment Owner",
     icon: <MdOutlineHomeWork className="size-6" />,
   },
+
+
+
   {
     path: "/apartment-creator",
     name: "Apartment Creator",
@@ -46,6 +64,9 @@ const sidebarItems = [
     name: "Apartment Create",
     icon: <PiBuildingApartmentLight className="size-6" />,
   },
+
+
+
 
 
   {

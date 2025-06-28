@@ -34,11 +34,7 @@ const ApartmentList = () => {
                                     <img className="w-full rounded-lg" src="/Apartment/image-1.jpg" alt="Apartment" />
                                     <img className="w-full rounded-lg" src="/Apartment/image-1.jpg" alt="Apartment" />
                                 </div>
-                            </Link>
-                            <div className='flex items-center justify-between gap-2'>
-                                <button className="border py-2 px-10 border-[#39ceec] rounded-lg mt-5 w-full">Edit</button>
-                                <button className="py-2 px-10 bg-[#39ceec] text-white rounded-lg mt-5 w-full">Delete</button>
-                            </div>
+                            </Link> 
                         </div>
                     ))
                 }

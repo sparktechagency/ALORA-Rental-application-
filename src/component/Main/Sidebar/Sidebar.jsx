@@ -18,6 +18,7 @@ import { RxCross1 } from "react-icons/rx";
 import logoimage from '/public/logo/Logo-Orange.png';
 import { AiFillCrown } from "react-icons/ai";
 import { PiBuildingApartmentLight } from "react-icons/pi";
+import { BiSolidSchool } from "react-icons/bi";
 
 const sidebarItems = [
   {
@@ -50,6 +51,12 @@ const sidebarItems = [
     path: "/apartment-owner",
     name: "Apartment Owner",
     icon: <MdOutlineHomeWork className="size-6" />,
+  },
+
+  {
+    path: "/apartment-list",
+    name: "Apartment  list",
+    icon: <BiSolidSchool className="size-6" />,
   },
 
 
@@ -102,8 +109,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     <div>
       {/* Desktop Sidebar */}
       <div className="hidden overflow-y-auto md:block w-full md:w-[200px] lg:w-[250px] xl:w-[280px] h-full  bg-[#ffffff] fixed shadow-2xl">
-        <Link to={"/"} className="flex flex-col justify-center items-center pt-5 gap-2 bg-white mb-10 text-black">
-          <img src={logoimage} alt="logo" className="w-[80px]  py-5 " />
+        <Link to={"/"} className="flex flex-col justify-center items-center pt-5 gap-2 bg-white mb-5 text-black">
+          <img src={logoimage} alt="logo" className="w-[60px]  py-5 " />
         </Link>
         <ul className="flex flex-col gap-5 mt-10">
           {sidebarItems.map((item) => (
@@ -123,10 +130,10 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
 
         <button
           onClick={() => setShowModal(true)}
-          className="flex items-center gap-1 font-bold px-10 py-4 text-black  ml-6 mt-5"
+          className="flex items-center gap-1 font-bold px-10 py-4 text-black  ml-6"
         >
-          <IoIosLogOut className="size-8  p-1 text-white rounded-md" />
-          <span className="text-white">Logout</span>
+          <IoIosLogOut className="size-8  p-1 text-red-600 rounded-md" />
+          <span className="text-red-600">Logout</span>
         </button>
 
       </div>

@@ -59,6 +59,7 @@ import CaintenanceCrew from "../page/CaintenanceCrew/CaintenanceCrew";
 import CaintenanceCrewCreate from "../page/CaintenanceCrew/CaintenanceCrewCreate";
 import AllAdmins from "../page/Admins/AllAdmins";
 import AllAdminsCreate from "../page/Admins/AllAdminsCreate";
+import ApartmentList from "../page/ApartmentList/ApartmentList";
 
 
 
@@ -113,6 +114,11 @@ const router = createBrowserRouter([
       {
         path: "apartment-owner/apartment-details/:id",
         element: <Apartmentdetails />,
+      },
+
+      {
+        path: "apartment-list",
+        element: <ApartmentList />,
       },
 
       {

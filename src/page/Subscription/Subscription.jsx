@@ -129,13 +129,13 @@ const Subscription = () => {
             <div className="w-full md:flex justify-end items-center gap-2 flex-wrap py-6">
                 <Link
                     to="/subscription/user-list"
-                    className="text-xl px-2 md:px-5 py-3 border border-[#2cb5eb] text-[#2cb5eb] flex justify-center items-center gap-1 rounded md:mb-0"
+                    className="text-xl px-2 md:w-auto w-48 md:px-5 py-3 border border-[#2cb5eb] text-[#2cb5eb] flex justify-center items-center gap-1 rounded md:mb-0"
                 >
                     Subscriptions User
                 </Link>
                 <button
                     type="button"
-                    className="text-xl px-2 md:px-5 py-3 bg-[#2cb5eb] text-white flex justify-center items-center gap-1 rounded md:mb-0"
+                    className="text-xl mt-2 md:mt-0 px-2 md:px-5 py-3 bg-[#2cb5eb] text-white flex justify-center items-center gap-1 rounded md:mb-0"
                     onClick={() => showModal(false)}
                 >
                     <FaPlus className="text-xl font-semibold text-white" /> Add Subscription

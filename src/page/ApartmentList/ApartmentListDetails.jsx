@@ -26,7 +26,7 @@ const ApartmentListDetails = () => {
                 <FaAngleLeft />  Apartment details
             </Link>
 
-            <div className='grid grid-cols-3 items-start gap-5 my-5'>
+            <div className='md:grid grid-cols-3 items-start gap-5 my-5'>
                 <div className='col-span-2  rounded-lg p-5 bg-white '>
                     <div className='max-w-[650px] my-5'>
                         {/* Apartment Image */}
@@ -83,7 +83,7 @@ const ApartmentListDetails = () => {
                     {/* Apartment Unit List Section */}
                     <div className="space-y-3 my-5">
                         <span className="text-2xl font-semibold border-b-2 border-[#39ceec]">Apartment Unit List</span>
-                        <div className="grid grid-cols-8 gap-3 mt-3">
+                        <div className="grid grid-cols-4 md:grid-cols-8 gap-3 mt-3">
                             <div onClick={handleShowModal} className='border cursor-pointer border-[#39ceec] p-2 rounded-lg'>
                                 <img className="w-full rounded-lg" src="/Apartment/image-1.jpg" alt="Studio" />
                                 <hr className='mt-3 mb-2' />

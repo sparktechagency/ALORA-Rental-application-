@@ -94,7 +94,7 @@ const AllAdmins = () => {
                 <Link to={"/"} className="text-2xl flex items-center">
                     <FaAngleLeft />  Admins list  {detailsVisible ? "Details" : ""}
                 </Link>
-                <Link to={"/admins/create"} className="bg-[#2cb5eb] text-base  text-white py-2 px-10 rounded flex items-center gap-2"><IoMdPersonAdd /> Add Admin</Link>
+                <Link to={"/admins/create"} className="bg-[#2cb5eb] md:w-auto w-48 md:mt-0 mt-3 text-base  text-white py-2 px-10 rounded flex items-center gap-2"><IoMdPersonAdd /> Add Admin</Link>
             </div>
 
             <div className={`${detailsVisible ? "grid lg:grid-cols-2 gap-5" : "block"} duration-500`}>

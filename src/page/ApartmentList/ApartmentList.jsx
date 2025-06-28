@@ -13,7 +13,7 @@ const ApartmentList = () => {
                  
             </div>
 
-            <div className='grid grid-cols-4 gap-5 my-5'>
+            <div className='grid grid-cols-1 md:grid-cols-4 gap-5 my-5'>
 
                 {
                     [...Array(5)].map((_, i) => (

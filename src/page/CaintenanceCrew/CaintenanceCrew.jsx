@@ -99,7 +99,7 @@ const CaintenanceCrew = () => {
                 <Link to={"/"} className="text-2xl flex items-center ">
                     <FaAngleLeft />  Maintenance crew list  {detailsVisible ? "Details" : ""}
                 </Link>
-                <Form layout="inline" className="flex space-x-4">
+                <Form layout="inline" className="flex space-x-4 gap-2 mt-2 md:mt-0">
                     <Link to="/maintenance-crew/create" className="bg-[#2cb5eb] font-semibold text-white px-8 py-3 rounded-md  transition duration-300 hover:text-white hover:bg-[#28a1d1] flex items-center gap-2">
                         Account create
                     </Link>

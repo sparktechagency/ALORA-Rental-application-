@@ -12,7 +12,7 @@ const ApartmentCreate = () => {
                 <Link to={"/apartment-create/create"} className='bg-[#2cb5eb] text-white p-2 rounded-md'>Apartment Create</Link>
             </div>
 
-            <div className='grid grid-cols-4 gap-5 my-5'>
+            <div className='grid grid-cols-1 md:grid-cols-4 gap-5 my-5'>
 
                 {
                     [...Array(5)].map((_, i) => (

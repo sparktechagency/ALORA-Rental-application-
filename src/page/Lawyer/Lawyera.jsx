@@ -96,7 +96,7 @@ const Lawyera = () => {
                 <Link to={"/"} className="text-2xl flex items-center">
                     <FaAngleLeft />  Submission fee list {detailsVisible ? "Details" : ""}
                 </Link>
-                <Form layout="inline" className="flex space-x-4">
+                <Form layout="inline" className="flex space-x-4 gap-4 items-center mt-2 md:mt-0">
                     <Link to={"/apartment-creator/create"} className="bg-[#2cb5eb] hover:!text-white text-white rounded-md py-3 px-8 text-base">Account create</Link>
                     <Item name="date">
                         <DatePicker

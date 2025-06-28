@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { IoIosLogOut } from "react-icons/io";
-import { IoBagHandleSharp, IoSettingsSharp } from "react-icons/io5";
+import { IoBagHandleSharp, IoDiamondOutline, IoSettingsSharp } from "react-icons/io5";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "/public/logo/dashboard_log.png";
 import { useDispatch } from "react-redux";
@@ -32,51 +32,52 @@ const sidebarItems = [
     icon: <FaUserAlt className="size-5" />,
   },
 
-
-  {
-    path: "/agent",
-    name: "Agent",
-    icon: <FaUsers className="size-6" />,
-  },
-
-  {
-    path: "/maintenance-crew",
-    name: "Maintenance crew list",
-    icon: <FaUsers className="size-6" />,
-  },
-
-
-
-  {
-    path: "/apartment-owner",
-    name: "Apartment Owner",
-    icon: <MdOutlineHomeWork className="size-6" />,
-  },
-
   {
     path: "/apartment-list",
     name: "Apartment  list",
     icon: <BiSolidSchool className="size-6" />,
-  },
-
-
-
-  {
-    path: "/apartment-creator",
-    name: "Apartment Creator",
-    icon: <FaUsers className="size-6" />,
   },
   {
     path: "/apartment-create",
     name: "Apartment Create",
     icon: <PiBuildingApartmentLight className="size-6" />,
   },
-
   {
     path: "/admins",
     name: "All Admins",
     icon: <FaUsersCog className="size-6" />,
   },
+
+  {
+    path: "/maintenance-crew",
+    name: "Create Crew",
+    icon: <FaUsers className="size-6" />,
+  },
+  {
+    path: "/apartment-creator",
+    name: "Submission fee list",
+    icon: <IoDiamondOutline className="size-6" />,
+  },
+
+
+
+
+  {
+    path: "/agent",
+    name: "Agent List",
+    icon: <FaUsers className="size-6" />,
+  },
+  // {
+  //   path: "/apartment-owner",
+  //   name: "Apartment Owner",
+  //   icon: <MdOutlineHomeWork className="size-6" />,
+  // },
+
+
+
+
+
+
 
 
 

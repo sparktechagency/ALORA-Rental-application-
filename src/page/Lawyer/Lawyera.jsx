@@ -94,7 +94,7 @@ const Lawyera = () => {
         <section>
             <div className="md:flex justify-between items-center py-6 mb-4">
                 <Link to={"/"} className="text-2xl flex items-center">
-                    <FaAngleLeft />  Apartment Creator list {detailsVisible ? "Details" : ""}
+                    <FaAngleLeft />  Submission fee list {detailsVisible ? "Details" : ""}
                 </Link>
                 <Form layout="inline" className="flex space-x-4">
                     <Link to={"/apartment-creator/create"} className="bg-[#2cb5eb] hover:!text-white text-white rounded-md py-3 px-8 text-base">Account create</Link>

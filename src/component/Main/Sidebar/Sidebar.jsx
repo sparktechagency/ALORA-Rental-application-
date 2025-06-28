@@ -27,7 +27,7 @@ const sidebarItems = [
   },
   {
     path: "/users",
-    name: "Resent User",
+    name: "User list",
     icon: <FaUserAlt className="size-5" />,
   },
 

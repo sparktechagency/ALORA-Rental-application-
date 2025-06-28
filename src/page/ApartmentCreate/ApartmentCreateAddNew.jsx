@@ -3,6 +3,7 @@ import { Form, Input, Button, message, Steps, Upload, Select, Space, List } from
 import { UploadOutlined } from '@ant-design/icons';
 import Dragger from 'antd/es/upload/Dragger';
 import { FaRegCircleCheck } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const { Step } = Steps;
 
@@ -366,10 +367,14 @@ const ApartmentCreateAddNew = () => {
                             {/* submit successfully desing need to add  */}
                             <div className='flex flex-col items-center'>
                                 <FaRegCircleCheck className='text-6xl text-green-600' />
+                                
                                 <h3 className='text-2xl my-5 text-green-600'>Apartment created successfully</h3>
-                                <Button type="default" onClick={prev}  >
-                                    Previous
-                                </Button>
+                                <Link to={`/apartment-create`} className='w-full'>
+                                    <button className='bg-green-600 text-white p-2 px-10 rounded-md'>View Apartments</button>
+                                
+                                
+                                
+                                </Link>
                             </div>
 
                         </div>

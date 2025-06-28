@@ -19,6 +19,7 @@ import logoimage from '/public/logo/Logo-Orange.png';
 import { AiFillCrown } from "react-icons/ai";
 import { PiBuildingApartmentLight } from "react-icons/pi";
 import { BiSolidSchool } from "react-icons/bi";
+import { HiClipboardDocumentCheck } from "react-icons/hi2";
 
 const sidebarItems = [
   {
@@ -72,6 +73,12 @@ const sidebarItems = [
   //   name: "Apartment Owner",
   //   icon: <MdOutlineHomeWork className="size-6" />,
   // },
+
+  {
+    path: "/monthly-bill-statement",
+    name: "Monthly Bill Statement",
+    icon: <HiClipboardDocumentCheck className="size-6" />,
+  },
 
 
 

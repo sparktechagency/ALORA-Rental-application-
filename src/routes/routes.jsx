@@ -61,6 +61,8 @@ import AllAdmins from "../page/Admins/AllAdmins";
 import AllAdminsCreate from "../page/Admins/AllAdminsCreate";
 import ApartmentList from "../page/ApartmentList/ApartmentList";
 import ApartmentListDetails from "../page/ApartmentList/ApartmentListDetails";
+import MonthlyBillStatment from "../page/MonthlyBillStatment/MonthlyBillStatment";
+import MonthlyBillStatmentDetails from "../page/MonthlyBillStatment/MonthlyBillStatmentDetails";
 
 
 
@@ -157,6 +159,17 @@ const router = createBrowserRouter([
       {
         path: "admins/create",
         element: <AllAdminsCreate />,
+      },
+
+
+      {
+        path: "monthly-bill-statement",
+        element: <MonthlyBillStatment />,
+      },
+
+      {
+        path: "monthly-bill-statement/:id",
+        element: <MonthlyBillStatmentDetails />,
       },
 
 

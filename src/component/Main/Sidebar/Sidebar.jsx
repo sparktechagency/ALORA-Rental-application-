@@ -173,8 +173,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
           }}
           className="flex items-center gap-2 px-10 ml-5 mt-5"
         >
-          <IoIosLogOut className="size-8   p-1 text-white rounded-md" />
-          <span className="text-black">Logout</span>
+          <IoIosLogOut className="size-8   p-1 text-red-600 rounded-md" />
+          <span className="text-red-600">Logout</span>
         </button>
       </div>
 

@@ -57,6 +57,8 @@ import Agent from "../page/Agent/Agent";
 import Agentcreate from "../page/Agent/Agentcreate";
 import CaintenanceCrew from "../page/CaintenanceCrew/CaintenanceCrew";
 import CaintenanceCrewCreate from "../page/CaintenanceCrew/CaintenanceCrewCreate";
+import AllAdmins from "../page/Admins/AllAdmins";
+import AllAdminsCreate from "../page/Admins/AllAdminsCreate";
 
 
 
@@ -135,6 +137,14 @@ const router = createBrowserRouter([
       {
         path: "apartment-create/create",
         element: <ApartmentCreateAddNew />,
+      },
+      {
+        path: "admins",
+        element: <AllAdmins />,
+      },
+      {
+        path: "admins/create",
+        element: <AllAdminsCreate />,
       },
 
 

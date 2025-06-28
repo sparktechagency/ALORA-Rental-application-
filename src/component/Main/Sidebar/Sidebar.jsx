@@ -7,7 +7,7 @@ import logo from "/public/logo/dashboard_log.png";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../redux/features/auth/authSlice";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
-import { FaBriefcase, FaCopy, FaUserAlt, FaUsers } from "react-icons/fa";
+import { FaBriefcase, FaCopy, FaUserAlt, FaUsers, FaUsersCog } from "react-icons/fa";
 import { MdDashboard, MdOutlineContactPage, MdOutlineHomeWork } from "react-icons/md";
 // import { GiLightBulb } from "react-icons/gi";
 import { HiLightBulb } from "react-icons/hi";
@@ -28,7 +28,7 @@ const sidebarItems = [
   {
     path: "/users",
     name: "Resent User",
-    icon: <FaUserAlt className="size-6" />,
+    icon: <FaUserAlt className="size-5" />,
   },
 
 
@@ -63,6 +63,12 @@ const sidebarItems = [
     path: "/apartment-create",
     name: "Apartment Create",
     icon: <PiBuildingApartmentLight className="size-6" />,
+  },
+
+  {
+    path: "/admins",
+    name: "All Admins",
+    icon: <FaUsersCog className="size-6" />,
   },
 
 
